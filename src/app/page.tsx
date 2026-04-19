@@ -10,6 +10,8 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
+  CheckSquare,
+  AlertCircle,
 } from "lucide-react";
 
 export default function Home() {
@@ -193,46 +195,50 @@ export default function Home() {
           </div>
         </div>
 
-        {/* System Status */}
+        {/* Tasks Summary */}
         <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">System Status</h2>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-900">Tasks</h2>
+            <Link href="/tasks" className="text-sm text-blue-600 hover:underline">
+              View All
+            </Link>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                <span className="text-sm font-medium text-gray-700">Gateway</span>
+                <CheckCircle size={18} className="text-green-600" />
+                <span className="text-sm font-medium text-gray-700">Completed</span>
               </div>
-              <span className="text-xs text-green-600 font-medium">Online</span>
+              <span className="text-lg font-bold text-green-600">2</span>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                <span className="text-sm font-medium text-gray-700">Database</span>
+                <Clock size={18} className="text-blue-600" />
+                <span className="text-sm font-medium text-gray-700">In Progress</span>
               </div>
-              <span className="text-xs text-green-600 font-medium">Online</span>
+              <span className="text-lg font-bold text-blue-600">1</span>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                <span className="text-sm font-medium text-gray-700">Cache</span>
+                <CheckSquare size={18} className="text-gray-400" />
+                <span className="text-sm font-medium text-gray-700">Pending</span>
               </div>
-              <span className="text-xs text-green-600 font-medium">Healthy</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                <span className="text-sm font-medium text-gray-700">Azure</span>
-              </div>
-              <span className="text-xs text-green-600 font-medium">Connected</span>
+              <span className="text-lg font-bold text-gray-600">5</span>
             </div>
           </div>
           
-          <Link
-            href="/system"
-            className="block w-full mt-6 py-2 px-4 bg-gray-50 hover:bg-gray-100 text-gray-700 text-sm font-medium rounded-lg text-center transition-colors"
-          >
-            View Details
-          </Link>
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <h3 className="text-xs font-medium text-gray-500 uppercase mb-2">Overdue</h3>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 p-2 bg-red-50 rounded-lg">
+                <AlertCircle size={16} className="text-red-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-medium text-red-900">Git Commit & Push</p>
+                  <p className="text-xs text-red-600">Due: Today</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

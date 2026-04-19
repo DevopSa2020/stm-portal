@@ -18,6 +18,7 @@ import {
   Settings,
   Star,
   Clock,
+  CheckSquare,
 } from "lucide-react";
 
 interface NavSection {
@@ -51,6 +52,7 @@ const navSections: NavSection[] = [
     title: "Workspace",
     icon: <FolderOpen size={18} />,
     links: [
+      { href: "/tasks", label: "Tasks", icon: <CheckSquare size={16} /> },
       { href: "/files", label: "Files", icon: <FolderOpen size={16} /> },
       { href: "/projects", label: "Projects", icon: <Projector size={16} /> },
       { href: "/chat", label: "Chat", icon: <MessageSquare size={16} /> },
