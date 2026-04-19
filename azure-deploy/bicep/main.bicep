@@ -49,41 +49,5 @@ resource webApp 'Microsoft.Web/sites@2023-01-01' = {
   }
 }
 
-// Key Vault for secrets
-resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
-  name: '${appName}-vault'
-  location: location
-  properties: {
-    sku: {
-      family: 'A'
-      name: 'standard'
-    }
-    tenantId: tenant().tenantId
-    accessPolicies: [
-      {
-        tenantId: tenant().tenantId
-        objectId: reference(webApp.identity, '2023-01-01', 'full').principalId
-        permissions: {
-          secrets: [
-            'get'
-            'list'
-          ]
-        }
-      }
-    ]
-  }
-}
-
-// Managed Identity for Web App
-resource webAppIdentity 'Microsoft.Web/sites@2023-01-01' = {
-  name: appName
-  location: location
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {}
-}
-
 // Output
 output webAppUrl string = 'https://${webApp.properties.defaultHostName}'
-output keyVaultName string = keyVault.name
