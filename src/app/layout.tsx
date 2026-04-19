@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Sidebar } from "@/components/Sidebar";
 
 export const metadata: Metadata = {
   title: "STM Portal | DevOp Technologies",
@@ -14,20 +15,32 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 min-h-screen">
-        <header className="bg-devop-blue text-white py-4 shadow-lg">
-          <div className="container mx-auto px-4">
-            <h1 className="text-2xl font-bold">STM Portal</h1>
-            <p className="text-sm opacity-90">DevOp Technologies</p>
-          </div>
-        </header>
-        <main className="container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <footer className="bg-gray-800 text-white py-6 mt-12">
-          <div className="container mx-auto px-4 text-center">
-            <p>&copy; 2026 DevOp Technologies. All rights reserved.</p>
-          </div>
-        </footer>
+        <Sidebar />
+        <div className="ml-64 transition-all duration-300">
+          {/* Mobile header - hidden on desktop */}
+          <header className="lg:hidden bg-white border-b border-gray-200 py-4 px-4 sticky top-0 z-40">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">STM</span>
+                </div>
+                <span className="font-semibold text-gray-900">Portal</span>
+              </div>
+            </div>
+          </header>
+          
+          {/* Main content */}
+          <main className="p-6 lg:p-8">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <footer className="border-t border-gray-200 bg-white py-6 px-8">
+            <div className="text-center text-sm text-gray-600">
+              <p>&copy; 2026 DevOp Technologies. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
       </body>
     </html>
   );
