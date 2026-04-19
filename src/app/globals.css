@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --devop-blue: #2563eb;
+  --devop-purple: #7c3aed;
+  --success-green: #10b981;
+  --warning-yellow: #f59e0b;
+  --error-red: #ef4444;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Rating Component Styles */
+.rating-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.rating-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.rating-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-like {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.btn-like:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-like.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-dislike {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.btn-dislike:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-dislike.active {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-save {
+  background-color: #fef3c7;
+  color: #f59e0b;
+}
+
+.btn-save:hover {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-save.active {
+  background-color: #f59e0b;
+  color: white;
+}
+
+/* Reports Grid */
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.report-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.report-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Grade Badges */
+.grade-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.grade-excellent {
+  background-color: #10b981;
+  color: white;
+}
+
+.grade-a-plus {
+  background-color: #059669;
+  color: white;
+}
+
+.grade-a {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.grade-a-minus {
+  background-color: #6366f1;
+  color: white;
+}
+
+.grade-b-plus {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+/* News Card */
+.news-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Mermaid Diagrams */
+.mermaid {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
